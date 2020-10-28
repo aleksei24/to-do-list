@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* border: 0; */
+    position: relative;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.wrapper {
+    height: 100%;
+    padding: 50px;
+    margin: 0;
+    background-color: #f9f9f9;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: black;
+    min-height: 100vh;
+}
+
+.app{
+    padding:10px;
+    width:380px;
+    margin:0 auto;
+}
+
+.top{
+    width: 380px;
+    height:200px;
+    background-image: url('../img/bg.jpeg');
+    background-size: 100% 140%;
+    background-repeat: no-repeat;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+}
+
+.clear{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right:20px;
+    top: 20px;
+}
+.clear img{
+    width: 30px;
+    color: #FFF;
+    transition: all .3s ease;
+}
+.clear img:hover{
+    cursor: pointer;
+    text-shadow: 1px 3px 5px #000;
+    transform: rotate(45deg);
+}
+
+#date{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #FFF;
+    font-size: 25px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.content{
+    width:380px;
+    height: 350px;
+    max-height:350px;
+    background-color: #FFF;
+    overflow: auto;
+}
+.content::-webkit-scrollbar { 
+    display: none; 
+}
+.content ul{
+    padding:0;
+    margin:0;
+}
+
+.item{
+    width:380px;
+    height: 45px;
+    min-height: 45px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.item img.co{
+    position: absolute;
+    width: 23px;
+    left:15px;
+    top:10px;
+}
+.item img.done{
+    position: absolute;
+    width: 27px;
+    left:15px;
+    top:10px;
+}
+.item img:hover{
+    cursor: pointer;
+}
+.item p.text{
+    position: absolute;
+    padding:0;
+    margin:0;
+    font-size: 20px;
+    left:50px;
+    top:5px;
+    background-color: #FFF;
+    max-width:285px;
+}
+.lineThrough{
+    text-decoration: line-through;
+    color : #ccc;
+}
+.item img.de{
+    position: absolute;
+    width: 25px;
+    right:15px;
+    top:10px;
+}
+.item img.de:hover{
+    cursor: pointer;
+}
+
+
+.addItem{
+    position: relative;
+    width: 360px;
+    height:40px;
+    background-color: #FFF;
+    padding: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.addItem img{
+    position: absolute;
+    width: 30px;
+}
+.addItem input{
+    position: absolute;
+    left: 50px;
+    height: 35px;
+    width: 310px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding-left:10px;
+}

@@ -48,3 +48,21 @@ document.addEventListener('keydown', function (e) {
         input.value = '';
     }
 });
+
+function completeTask(el) {
+    el.classList.toggle(CHECK);
+    el.classList.toggle(UNCHECK);
+    if (el.className === CHECK) {
+        el.setAttribute('src', checkedAttr);
+    }
+    if (el.className === UNCHECK) {
+        el.setAttribute('src', uncheckedAttr);
+    }
+    el.parentNode.querySelector('.text').classList.toggle(crossed);
+    arrList[el.id].done = arrList[el.id].done ? false : true;
+}
+
+function removeTask(el) {
+    el.parentNode.parentNode.removeChild(el.parentNode);
+    arrList[el.id].bin = true;
+}

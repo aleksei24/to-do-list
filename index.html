@@ -3,10 +3,37 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
         <link rel="stylesheet" href="./css/style.css" />
+        <title>Document</title>
     </head>
     <body>
+        <div class="wrapper">
+            <div class="app">
+                <div class="top">
+                    <div class="clear">
+                        <img src="./img/remove.png" alt="remove" />
+                    </div>
+                    <div id="date"></div>
+                </div>
+                <div class="content">
+                    <ul id="list">
+                        <li class="item">
+                            <img class="co" src="./img/task.png" alt="undone" />
+                            <p class="text">Drink tea</p>
+                            <img class="de" src="./img/bin.png" alt="bin" />
+                        </li>
+                    </ul>
+                    <div class="addItem">
+                        <img src="./img/add.png" alt="addItem" />
+                        <input
+                            type="text"
+                            id="input"
+                            placeholder="Add a task"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="./js/script.js"></script>
     </body>
 </html>

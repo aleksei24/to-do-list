@@ -5,9 +5,9 @@ const input = document.querySelector('#input');
 
 const CHECK = 'done';
 const UNCHECK = 'co';
-const binAttr = '../img/bin.png';
-const checkedAttr = '../img/done.png';
-const uncheckedAttr = '../img/task.png';
+const binAttr = './img/bin.png';
+const checkedAttr = './img/done.png';
+const uncheckedAttr = './img/task.png';
 const crossed = 'lineThrough';
 
 let arrList;
@@ -66,3 +66,40 @@ function removeTask(el) {
     el.parentNode.parentNode.removeChild(el.parentNode);
     arrList[el.id].bin = true;
 }
+
+list.addEventListener('click', function (e) {
+    let element = e.target;
+    let elementJob = e.target.attributes.job.value;
+    if (elementJob === 'complete') {
+        completeTask(element);
+    } else if (elementJob === 'delete') {
+        removeTask(element);
+    }
+    localStorage.setItem('TODO', JSON.stringify(arrList));
+});
+
+const today = new Date();
+const options = { weekday: 'long', month: 'short', day: 'numeric' };
+date.innerHTML = today.toLocaleDateString('en-GB', options);
+
+let data = localStorage.getItem('TODO');
+
+if (data) {
+    arrList = JSON.parse(data);
+    id = arrList.length;
+    loadList(arrList);
+} else {
+    arrList = [];
+    id = 0;
+}
+
+function loadList(arr) {
+    arr.forEach((item) => {
+        addTask(item.name, item.id, item.done, item.bin);
+    });
+}
+
+clear.addEventListener('click', function () {
+    localStorage.clear();
+    location.reload();
+});

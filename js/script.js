@@ -30,3 +30,21 @@ function addTask(task, id, done, bin) {
     const position = 'beforeend';
     list.insertAdjacentHTML(position, text);
 }
+
+document.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+        const inputValue = input.value;
+        if (inputValue) {
+            addTask(inputValue, id, false, false);
+            arrList.push({
+                name: inputValue,
+                id: id,
+                done: false,
+                bin: false,
+            });
+            localStorage.setItem('TODO', JSON.stringify(arrList));
+            id++;
+        }
+        input.value = '';
+    }
+});

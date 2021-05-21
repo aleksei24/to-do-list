@@ -159,4 +159,7 @@
     .addItem img {
         margin-right: 10px;
     }
+    .wrapper {
+        padding: 50px 5px;
+    }
 }

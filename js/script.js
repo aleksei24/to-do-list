@@ -2,6 +2,7 @@ const clear = document.querySelector('.clear');
 const date = document.querySelector('#date');
 const list = document.querySelector('#list');
 const input = document.querySelector('#input');
+const plus = document.querySelector('.addItem img');
 
 const CHECK = 'done';
 const UNCHECK = 'co';
@@ -47,6 +48,22 @@ document.addEventListener('keydown', function (e) {
         }
         input.value = '';
     }
+});
+
+plus.addEventListener('click', function (e) {
+    const inputValue = input.value;
+    if (inputValue) {
+        addTask(inputValue, id, false, false);
+        arrList.push({
+            name: inputValue,
+            id: id,
+            done: false,
+            bin: false,
+        });
+        localStorage.setItem('TODO', JSON.stringify(arrList));
+        id++;
+    }
+    input.value = '';
 });
 
 function completeTask(el) {

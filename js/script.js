@@ -43,7 +43,7 @@ document.addEventListener('keydown', function (e) {
                 done: false,
                 bin: false,
             });
-            localStorage.setItem('TODO', JSON.stringify(arrList));
+            // localStorage.setItem('TODO', JSON.stringify(arrList));
             id++;
         }
         input.value = '';
@@ -60,7 +60,7 @@ plus.addEventListener('click', function (e) {
             done: false,
             bin: false,
         });
-        localStorage.setItem('TODO', JSON.stringify(arrList));
+        // localStorage.setItem('TODO', JSON.stringify(arrList));
         id++;
     }
     input.value = '';
@@ -92,16 +92,16 @@ list.addEventListener('click', function (e) {
     } else if (elementJob === 'delete') {
         removeTask(element);
     }
-    localStorage.setItem('TODO', JSON.stringify(arrList));
+    // localStorage.setItem('TODO', JSON.stringify(arrList));
 });
 
 const today = new Date();
 const options = { weekday: 'long', month: 'short', day: 'numeric' };
 date.innerHTML = today.toLocaleDateString('en-GB', options);
 
-let data = localStorage.getItem('TODO');
+// let data = localStorage.getItem('TODO');
 
-if (data) {
+/*if (data) {
     arrList = JSON.parse(data);
     id = arrList.length;
     loadList(arrList);
@@ -119,4 +119,4 @@ function loadList(arr) {
 clear.addEventListener('click', function () {
     localStorage.clear();
     location.reload();
-});
+});*/

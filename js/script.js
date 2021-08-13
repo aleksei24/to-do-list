@@ -1,4 +1,4 @@
-const clear = document.querySelector('.clear');
+const clear = document.querySelector('#clear');
 const date = document.querySelector('#date');
 const list = document.querySelector('#list');
 const input = document.querySelector('#input');
@@ -14,7 +14,7 @@ const crossed = 'lineThrough';
 let arrList;
 let id;
 
-function addTask(task, id, done, bin) {
+/*function addTask(task, id, done, bin) {
     if (bin) {
         return;
     }
@@ -97,7 +97,7 @@ list.addEventListener('click', function (e) {
 
 const today = new Date();
 const options = { weekday: 'long', month: 'short', day: 'numeric' };
-date.innerHTML = today.toLocaleDateString('en-GB', options);
+date.innerHTML = today.toLocaleDateString('en-GB', options);*/
 
 // let data = localStorage.getItem('TODO');
 
@@ -120,3 +120,5 @@ clear.addEventListener('click', function () {
     localStorage.clear();
     location.reload();
 });*/
+
+// ==================================================================

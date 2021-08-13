@@ -11,6 +11,63 @@ const checkedAttr = './img/done.png';
 const uncheckedAttr = './img/task.png';
 const crossed = 'lineThrough';
 
+let listDB;
+
+window.addEventListener('load', function () {
+    let request = window.indexedDB.open('list_db', 1);
+
+    request.addEventListener('error', () => {
+        console.error('Database is failed to open');
+    });
+
+    request.addEventListener('success', () => {
+        console.log('Database is opened successfully');
+        listDB = request.result;
+        displayData();
+    });
+
+    request.addEventListener('upgradeneeded', function (e) {
+        let dbRequest = e.target.result;
+        let objectStore = dbRequest.createObjectStore('list_os', {
+            keyPath: 'id',
+            autoIncrement: true,
+        });
+
+        objectStore.createIndex('input', 'input', { unique: false });
+
+        console.log('Database setup is complete');
+    });
+
+    plus.addEventListener('click', addData);
+
+    function displayData() {
+        console.log('displayData function will be here');
+    }
+
+    function addData(e) {
+        e.preventDefault();
+        console.log('addData function will be here');
+
+        let newItem = { input: input.value };
+        let transaction = listDB.transaction(['list_os'], 'readwrite');
+        let addDataObjStore = transaction.objectStore('list_os');
+        let request = addDataObjStore.addData(newItem);
+
+        request.addEventListener('success', () => {
+            input.value = '';
+        });
+
+        transaction.addEventListener('complete', () => {
+            console.log('Transaction completed');
+            displayData();
+        });
+
+        transaction.addEventListener('error', () => {
+            console.error('Transaction cannot be opened due to error');
+        });
+    }
+});
+// ====================================================================
 // let arrList;
 // let id;
 
@@ -120,5 +177,3 @@ clear.addEventListener('click', function () {
     localStorage.clear();
     location.reload();
 });*/
-
-// ==================================================================

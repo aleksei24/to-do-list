@@ -11,8 +11,8 @@ const checkedAttr = './img/done.png';
 const uncheckedAttr = './img/task.png';
 const crossed = 'lineThrough';
 
-let arrList;
-let id;
+// let arrList;
+// let id;
 
 /*function addTask(task, id, done, bin) {
     if (bin) {

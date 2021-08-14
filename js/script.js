@@ -14,7 +14,7 @@ const crossed = 'lineThrough';
 let listDB;
 
 window.addEventListener('load', function () {
-    let request = window.indexedDB.open('list_db', 1);
+    let request = window.indexedDB.open('list_db', 2);
 
     request.addEventListener('error', () => {
         console.error('Database is failed to open');
@@ -51,7 +51,8 @@ window.addEventListener('load', function () {
         let newItem = { input: input.value };
         let transaction = listDB.transaction(['list_os'], 'readwrite');
         let addDataObjStore = transaction.objectStore('list_os');
-        let request = addDataObjStore.addData(newItem);
+        // console.log(addDataObjStore);
+        let request = addDataObjStore.add(newItem);
 
         request.addEventListener('success', () => {
             input.value = '';

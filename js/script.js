@@ -42,6 +42,26 @@ window.addEventListener('load', function () {
 
     function displayData() {
         console.log('displayData function will be here');
+
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+
+        let displayObjectStore = listDB.transaction('list_os').objectStore('list_os');
+        displayObjectStore.openCursor().addEventListener('success', function (e) {
+            let cursor = e.target.result;
+            // console.log(cursor);
+
+            if (cursor) {
+                const listItem = document.createElement('li');
+                listItem.classList.add('item');
+                list.appendChild(listItem);
+                const itemText = document.createElement('p');
+                itemText.classList.add('text');
+                listItem.appendChild(itemText);
+            } else {
+            }
+        });
     }
 
     function addData(e) {

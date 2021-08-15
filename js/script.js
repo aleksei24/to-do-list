@@ -59,10 +59,26 @@ window.addEventListener('load', function () {
                 list.appendChild(listItem);
                 const itemText = document.createElement('p');
                 itemText.classList.add('text');
-                listItem.appendChild(itemText);
                 itemText.textContent = cursor.value.input;
+                const itemCheck = document.createElement('img');
+                itemCheck.classList.add(UNCHECK);
+                itemCheck.setAttribute('src', uncheckedAttr);
+                const bin = document.createElement('img');
+                bin.classList.add('de');
+                bin.setAttribute('src', binAttr);
+                listItem.appendChild(itemCheck);
+                listItem.appendChild(itemText);
+                listItem.appendChild(bin);
+                // bin.addEventListener('click', deleteItem);
                 cursor.continue();
             } else {
+                if (!list.firstChild) {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('item');
+                    listItem.textContent = 'No notes stored.';
+                    list.appendChild(listItem);
+                }
+                console.log('Notes are displayed');
             }
         });
     }

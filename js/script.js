@@ -55,10 +55,13 @@ window.addEventListener('load', function () {
             if (cursor) {
                 const listItem = document.createElement('li');
                 listItem.classList.add('item');
+                listItem.setAttribute('data-note-id', cursor.value.id);
                 list.appendChild(listItem);
                 const itemText = document.createElement('p');
                 itemText.classList.add('text');
                 listItem.appendChild(itemText);
+                itemText.textContent = cursor.value.input;
+                cursor.continue();
             } else {
             }
         });

@@ -9,6 +9,10 @@
     list-style-type: none;
     text-decoration: none;
 }
+li {
+    height: 40px;
+    padding: 10px 15px;
+}
 
 .wrapper {
     height: 100%;

@@ -60,16 +60,12 @@ window.addEventListener('load', function () {
                 const itemText = document.createElement('p');
                 itemText.classList.add('text');
                 itemText.textContent = cursor.value.input;
-                const itemCheck = document.createElement('img');
-                itemCheck.classList.add(UNCHECK);
-                itemCheck.setAttribute('src', uncheckedAttr);
                 const bin = document.createElement('img');
                 bin.classList.add('de');
                 bin.setAttribute('src', binAttr);
-                listItem.appendChild(itemCheck);
                 listItem.appendChild(itemText);
                 listItem.appendChild(bin);
-                // bin.addEventListener('click', deleteItem);
+                bin.addEventListener('click', deleteItem);
                 cursor.continue();
             } else {
                 if (!list.firstChild) {
@@ -104,6 +100,24 @@ window.addEventListener('load', function () {
 
         transaction.addEventListener('error', () => {
             console.error('Transaction cannot be opened due to error');
+        });
+    }
+
+    function deleteItem(e) {
+        let noteId = Number(e.target.parentNode.getAttribute('data-note-id'));
+        let transaction = listDB.transaction(['list_os'], 'readwrite');
+        let delItemObjectStore = transaction.objectStore('list_os');
+        let request = delItemObjectStore.delete(noteId);
+
+        transaction.addEventListener('complete', function () {
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+            console.log(`Note ${noteId} has been deleted`);
+
+            if (!list.firstChild) {
+                let listItem = document.createElement('li');
+                listItem.textContent = 'No notes are stored!';
+                list.appendChild(listItem);
+            }
         });
     }
 });

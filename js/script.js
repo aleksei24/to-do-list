@@ -1,15 +1,15 @@
-const clear = document.querySelector('#clear');
+// const clear = document.querySelector('#clear');
 const date = document.querySelector('#date');
 const list = document.querySelector('#list');
 const input = document.querySelector('#input');
 const plus = document.querySelector('.addItem img');
 
-const CHECK = 'done';
-const UNCHECK = 'co';
+// const CHECK = 'done';
+// const UNCHECK = 'co';
 const binAttr = './img/bin.png';
-const checkedAttr = './img/done.png';
-const uncheckedAttr = './img/task.png';
-const crossed = 'lineThrough';
+// const checkedAttr = './img/done.png';
+// const uncheckedAttr = './img/task.png';
+// const crossed = 'lineThrough';
 
 let listDB;
 
@@ -121,6 +121,10 @@ window.addEventListener('load', function () {
         });
     }
 });
+
+const today = new Date();
+const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
+date.innerHTML = today.toLocaleDateString('en-GB', options);
 // ====================================================================
 // let arrList;
 // let id;
@@ -205,10 +209,7 @@ list.addEventListener('click', function (e) {
     }
     // localStorage.setItem('TODO', JSON.stringify(arrList));
 });
-
-const today = new Date();
-const options = { weekday: 'long', month: 'short', day: 'numeric' };
-date.innerHTML = today.toLocaleDateString('en-GB', options);*/
+*/
 
 // let data = localStorage.getItem('TODO');
 

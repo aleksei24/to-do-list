@@ -1,4 +1,4 @@
-// const clear = document.querySelector('#clear');
+const clear = document.querySelector('#clear');
 const date = document.querySelector('#date');
 const list = document.querySelector('#list');
 const input = document.querySelector('#input');
@@ -120,6 +120,32 @@ window.addEventListener('load', function () {
             }
         });
     }
+
+    function getObjectStore(store_name, mode) {
+        let tx = listDB.transaction(store_name, mode);
+        return tx.objectStore(store_name);
+    }
+
+    function clearStore() {
+        let store = getObjectStore('list_os', 'readwrite');
+        // console.log(list.childNodes);
+        let req = store.clear();
+        list.remove(list.childNodes.childNodes);
+
+        req.onsuccess = function () {
+            console.log('Store cleared');
+            if (!list.childNodes) {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'No notes are stored!';
+                list.appendChild(listItem);
+            }
+        };
+        req.onerror = function (e) {
+            console.error('clearObjectStore:', e.target.errorCode);
+        };
+    }
+
+    clear.addEventListener('click', clearStore);
 });
 
 const today = new Date();

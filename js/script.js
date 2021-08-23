@@ -3,6 +3,7 @@ const date = document.querySelector('#date');
 const list = document.querySelector('#list');
 const input = document.querySelector('#input');
 const plus = document.querySelector('.addItem img');
+const content = document.querySelector('#content');
 
 // const CHECK = 'done';
 // const UNCHECK = 'co';

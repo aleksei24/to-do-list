@@ -131,14 +131,15 @@ window.addEventListener('load', function () {
         let store = getObjectStore('list_os', 'readwrite');
         // console.log(list.childNodes);
         let req = store.clear();
-        list.remove(list.childNodes.childNodes);
 
         req.onsuccess = function () {
             console.log('Store cleared');
             // if (!list.childNodes) {
+            list.remove(list.childNodes.childNodes);
             const listItem = document.createElement('li');
             listItem.textContent = 'No notes are stored!';
             list.appendChild(listItem);
+            content.appendChild(list);
             // }
         };
         req.onerror = function (e) {

@@ -129,25 +129,18 @@ window.addEventListener('load', function () {
 
     function clearStore() {
         let store = getObjectStore('list_os', 'readwrite');
-        // console.log(list.childNodes);
         let req = store.clear();
 
         req.onsuccess = function () {
             console.log('Store cleared');
-            // if (!list.childNodes) {
-            list.remove(list.childNodes.childNodes);
-            const listItem = document.createElement('li');
-            listItem.textContent = 'No notes are stored!';
-            list.appendChild(listItem);
-            content.appendChild(list);
-            // }
+            location.reload();
         };
         req.onerror = function (e) {
             console.error('clearObjectStore:', e.target.errorCode);
         };
     }
 
-    // clear.addEventListener('click', clearStore);
+    clear.addEventListener('click', clearStore);
 });
 
 const today = new Date();

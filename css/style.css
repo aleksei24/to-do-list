@@ -23,6 +23,8 @@ li {
     font-size: 16px;
     color: black;
     min-height: 100vh;
+    height: auto;
+    min-width: 320px;
 }
 
 .app {
@@ -44,14 +46,12 @@ li {
 }
 
 #clear {
-    width: 30px;
-    height: 30px;
     position: absolute;
-    right: 20px;
+    left: 20px;
     top: 20px;
 }
 #clear img {
-    width: 30px;
+    width: 40px;
     transition: all 0.3s ease;
 }
 #clear img:hover {
@@ -62,8 +62,8 @@ li {
 
 #date {
     position: absolute;
-    bottom: 1%;
-    left: 10px;
+    bottom: 10%;
+    right: 10px;
     color: #fff;
     font-size: 18px;
     font-family: 'Titillium Web', sans-serif;
